@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block name %}{{region.name_region}}{% endblock %}
+
+{% block content %}
+    <div class="content-container">
+        <img src="{{ location.photo.url }}" style="float: left; margin-right: 10px;">
+        <div class="info">
+            <p class="name">{{ location.name_location }}</p>
+            <p class="about">{{ location.about }}</p>
+            <p class="route">{{ location.route }}</p>
+            <p>{{ location.region }}</p>
+            <p>{{ location.cost }}</p>
+            <p>{{ location.hours }}</p>
+            <p>{{ location.address }}</p>
+            <a href="{{ location.map_link }}">Показати на карті</a>
+        </div>
+    </div>
+{% endblock %}
+
+
+
+

@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block name %}{{region.name_region}}{% endblock %}
+
+{% block content %}
+
+    <h2>{{region.name_region}}</h2>
+
+    <p>{{region.about_region}}</p>
+
+    {% for a in location %}
+        <a href="{% url 'location:location' a.name_location %}"><img src="{{ a.photo.url }}" height="200" width="200"></a>
+
+    {% endfor %}
+
+
+{% endblock %}

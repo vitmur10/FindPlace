@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" type="image/png" href="media/photo_2022-10-02_22-48-08.png"/>
+    <title>{% block name %}FindPlace{% endblock %}</title>
+</head>
+<style>
+    body {
+        background-color: #F5FFFA; /* Замініть на бажаний колір */
+    }
+.location-photo > div {
+  display: inline-block;
+  vertical-align: top;
+  width: 50%;
+  box-sizing: border-box;
+}
+
+.location {
+  background-color: #f5f5f5;
+  padding: 20px;
+}
+
+.photo {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.photo img {
+  max-width: 100%;
+}
+
+
+
+</style>
+
+{% if user.is_authenticated %}
+    <a href="/in/logout/">Вийти({{user.username}})</a>
+{% else %}
+    <a href="/in/register/">Регистрація</a>
+    <a href="/in/login/">Вхід</a>
+
+{% endif %}
+{% for a in region_list %}
+    <a href="{% url 'location:detail_region' a.id %}">{{a.name_region}}</a>
+{% endfor %}
+<ul>
+    {% for choice in type_choices %}
+        <li><a href="{% url 'location:type_loc' choice.0 %}">{{choice.1}}</a></li>
+    {% endfor %}
+</ul>
+<body>
+    {% block content %}
+        <!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Туризм</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <header>
+    <h1>Ласкаво просимо до світу туризму!</h1>
+  </header>
+
+  <nav>
+    <ul>
+      <li><a href="#">Головна</a></li>
+      <li><a href="#">Про нас</a></li>
+      <li><a href="#">Популярні місця</a></li>
+      <li><a href="#">Путівки</a></li>
+      <li><a href="#">Контакти</a></li>
+    </ul>
+  </nav>
+
+  <section class="banner">
+    <h2>Відкрийте нові країни та пригоди</h2>
+    <a href="#" class="btn">Дізнатися більше</a>
+  </section>
+
+  <section class="featured-places">
+    <h2>Популярні місця</h2>
+    <div class="place">
+      <img src="place1.jpg" alt="Місце 1">
+      <h3>Назва місця 1</h3>
+      <p>Опис місця 1</p>
+    </div>
+    <div class="place">
+      <img src="place2.jpg" alt="Місце 2">
+      <h3>Назва місця 2</h3>
+      <p>Опис місця 2</p>
+    </div>
+    <div class="place">
+      <img src="place3.jpg" alt="Місце 3">
+      <h3>Назва місця 3</h3>
+      <p>Опис місця 3</p>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2023 Всі права захищені</p>
+  </footer>
+</body>
+
+</html>
+
+    {% endblock %}
+
+</body>
+</html>

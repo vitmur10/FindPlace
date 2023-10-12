@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block name %}{{location.type}}{% endblock %}
+
+{% block content %}
+{% for a in location %}
+    <a href="{% url 'location:location' a.name_location %}" class="location-photo">
+      <div class="location">
+        <h2>{{ a.name_location }}</h2>
+      </div>
+      <div class="photo">
+        <img class = image_type src="{{ a.photo.url }}" height="200" width="200" >
+      </div>
+    </a>
+
+{% endfor %}
+
+
+
+
+
+
+{% endblock %}
